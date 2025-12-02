@@ -1,2 +1,486 @@
-# Python-for-Data-Analytics
-This repository contains a structured, beginner-friendly guide to mastering Python for data analysis. It covers the full workflow—from Python fundamentals to real-world data cleaning, analysis, visualization, and automation. Each section includes practical examples, exercises, and mini-projects designed to build confidence and hands-on skills.
+# Python for Data Analytics
+
+A comprehensive guide to Python fundamentals for data analytics, covering essential concepts from basic data types to practical analytics applications.
+
+---
+
+## Table of Contents
+
+- [What is Python?](#what-is-python)
+- [Python in Data Analytics](#python-in-data-analytics)
+- [Data Types and Variables](#data-types-and-variables)
+- [Operators](#operators)
+- [Expressions](#expressions)
+- [Conditional Statements](#conditional-statements)
+- [Loops](#loops)
+- [Functions and I/O](#functions-and-io)
+- [Practical Examples](#practical-examples)
+
+---
+
+## What is Python?
+
+Python is a high-level, general-purpose programming language known for its simplicity, readability, and flexibility. Its simple syntax makes it easy to learn, collaborate with others, and maintain long-term projects.
+
+---
+
+## Python in Data Analytics
+
+Data analysts use Python across every step of the data analysis process:
+
+- **Data Gathering:** Tools like **BeautifulSoup** and **Scrapy** help analysts scrape and collect structured data from websites efficiently.
+
+- **Data Processing:** Libraries such as **Pandas** allow analysts to organize, manipulate, and perform calculations on large datasets using DataFrames.
+
+- **Data Visualization:** Python's visualization libraries like **Matplotlib** turn raw numbers into charts, graphs, and interactive visuals that support clearer insights and better decision-making.
+
+---
+
+## Data Types and Variables
+
+Variables are names that store data values. They act as containers that hold information, and the stored value can change during the program. Data types tell Python what kind of information a variable is holding.
+
+### Commonly Used Data Types
+
+#### 1. **int (Integer)**
+Whole numbers with no decimals. They can be negative or positive.
+
+```python
+age = 30
+```
+
+#### 2. **float (Floating-Point Number)**
+Numbers with decimals. In analytics, floats appear in averages, percentages, prices, measurements, sales amounts, and statistical calculations.
+
+```python
+price = 499.99
+```
+
+#### 3. **str (String)**
+Text data enclosed in quotes. Essential for text analysis in analytics.
+
+```python
+customer_name = "Alice Johnson"
+```
+
+#### 4. **bool (Boolean)**
+Data types with only two possible values: `True` or `False`. Mainly used in decision-making, filtering data, or checking conditions.
+
+```python
+sales = 15000
+is_high_value = sales > 10000  # returns True
+print(is_high_value)
+```
+
+#### 5. **list**
+Stores multiple values in a single variable. Created using square brackets `[ ]`. Lists are **ordered** and **changeable** (mutable).
+
+```python
+fruits = ["apple", "banana", "orange"]
+```
+
+#### 6. **tuple**
+An ordered collection that is **unchangeable/immutable**. Once created, you cannot change its elements.
+
+```python
+coordinates = (10, 20.7)
+```
+
+#### 7. **dict (Dictionary)**
+A collection of key-value pairs. Each key is unique and acts like a label. Created with `{ }`.
+
+```python
+employee = {
+    "name": "James",
+    "age": 28,
+    "salary": 85000.50
+}
+```
+
+#### 8. **set**
+A collection of unique items. Unordered and mutable. Created using `set()` function.
+
+```python
+numbers = set([1, 2, 3, 2, 4])  # Output: {1, 2, 3, 4}
+```
+
+---
+
+## Operators
+
+Operators are used to perform operations on values and variables. Essential for calculations, comparisons, data filtering, and logical operations in analytics.
+
+### 1. Arithmetic Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `+` | Addition | `a + b` |
+| `-` | Subtraction | `a - b` |
+| `*` | Multiplication | `a * b` |
+| `/` | Division (always float) | `a / b` |
+| `//` | Floor Division (integer result) | `a // b` |
+| `%` | Modulus (remainder) | `a % b` |
+| `**` | Exponentiation | `a ** b` |
+
+**Example:**
+```python
+sales_today = 300
+target = 250
+if sales_today >= target:
+    print("Target achieved!")  # True
+```
+
+### 2. Comparison Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `==` | Equal | `a == b` |
+| `!=` | Not equal | `a != b` |
+| `>` | Greater than | `a > b` |
+| `<` | Less than | `a < b` |
+| `>=` | Greater or equal | `a >= b` |
+| `<=` | Less or equal | `a <= b` |
+
+### 3. Logical Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `and` | True if both conditions are True | `a > 10 and b < 20` |
+| `or` | True if at least one condition is True | `a > 10 or b > 20` |
+| `not` | Inverts the condition | `not(a > 10)` |
+
+**Example:**
+```python
+age = 25
+income = 50000
+if age > 18 and income > 30000:
+    print("Eligible for loan")
+```
+
+### 4. Assignment Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `=` | Assign | `a = 10` |
+| `+=` | Add & assign | `a += 5` → `a = a + 5` |
+| `-=` | Subtract & assign | `a -= 2` |
+| `*=` | Multiply & assign | `a *= 3` |
+| `/=` | Divide & assign | `a /= 2` |
+
+**Example:**
+```python
+total_sales = 100
+total_sales += 50  # new total = 150
+```
+
+### 5. Membership Operators
+
+| Operator | Meaning | Example |
+|----------|---------|---------|
+| `in` | True if value is present | `5 in numbers` |
+| `not in` | True if value is not present | `10 not in numbers` |
+
+**Example:**
+```python
+products = ["apple", "banana", "orange"]
+if "apple" in products:
+    print("Product available")
+```
+
+---
+
+## Expressions
+
+An expression is a combination of operators and operands that is evaluated to produce a value.
+
+### 1. Constant Expressions
+Fixed values only. Used to store fixed values like thresholds or constants.
+
+```python
+x = 15 + 1.3
+print(x)  # Output: 16.3
+```
+
+### 2. Arithmetic Expressions
+Combine numbers and arithmetic operators to perform calculations.
+
+```python
+sales = 40
+returns = 12
+total_sales = sales + returns  # Addition
+difference = sales - returns   # Subtraction
+product = sales * returns      # Multiplication
+average = sales / returns      # Division
+```
+
+### 3. Integral Expressions
+Produce integer results. Used in categorical data calculations.
+
+```python
+a = 13
+b = 12.0
+c = a + int(b)  # Convert float to int
+print(c)  # Output: 25
+```
+
+### 4. Floating Expressions
+Produce decimal values (float).
+
+```python
+a = 13
+b = 5
+c = a / b
+print(c)  # Output: 2.6
+```
+
+### 5. Relational Expressions
+Compare values using comparison operators and return `True` or `False`.
+
+```python
+a, b, c, d = 21, 13, 40, 37
+result = (a + b) >= (c - d)
+print(result)  # Output: True
+```
+
+### 6. Logical Expressions
+Combine multiple conditions using logical operators to produce `True` or `False`.
+
+```python
+age = 20
+made_purchase = True
+eligible = (age > 18) and made_purchase  # Check if both conditions are true
+print("Eligible:", eligible)  # Output: Eligible: True
+```
+
+### 7. Combinational Expressions
+Combine different types of expressions in one.
+
+```python
+a = 16
+b = 12
+total = a + b  # Arithmetic expression
+is_large = total > 25  # Comparison expression
+print("Total:", total)  # Output: 28
+print("Is total > 25?", is_large)  # Output: True
+```
+
+---
+
+## Conditional Statements
+
+Conditional statements execute certain blocks of code based on specific conditions. They control the flow of a program.
+
+### 1. if Statement
+Evaluates a condition and executes code if the condition is true.
+
+```python
+sale = 1200
+if sale > 1000:
+    print("High value sale")
+# Output: High value sale
+```
+
+### 2. if-else Statement
+Runs one block of code if condition is true, another if false.
+
+```python
+age = 10
+if age <= 12:
+    ticket = 0
+else:
+    ticket = 5
+print(ticket)  # Output: 0
+```
+
+**Ternary/Shorthand:**
+```python
+age = 10
+ticket = 0 if age <= 10 else 5
+```
+
+### 3. elif Statement
+Runs several mutually exclusive conditions. If the first condition is correct, the rest are skipped.
+
+```python
+age = 25
+if age <= 12:
+    group = "Child"
+elif age <= 19:
+    group = "Teenager"
+elif age <= 35:
+    group = "Young adult"
+else:
+    group = "Adult"
+print(group)  # Output: Young adult
+```
+
+### 4. Nested if Statement
+Used when there's a need for a sub-check. Two conditions must be true for the block to run.
+
+```python
+age = 70
+is_member = True
+if age >= 60:
+    if is_member:
+        discount = 0.30
+    else:
+        discount = 0.20
+else:
+    discount = 0.0
+print(discount)  # Output: 0.3
+```
+
+---
+
+## Loops
+
+Loops repeat actions efficiently. In data analytics, loops are used to go through each row, calculate totals, create new features, or perform checks.
+
+### 1. for Loop
+Iterates over a sequence (list, tuple, string, set, dict, range, etc.). Repeats a block once per item.
+
+```python
+# List of sales values
+sales = [100, 250, 400]
+total = 0
+
+# Loop through each sale and add to total
+for s in sales:
+    total += s
+print(total)  # Output: 750
+```
+
+### 2. while Loop
+Executes a block of statements repeatedly until a condition is satisfied.
+
+```python
+batches = 3
+cnt = 0
+while cnt < batches:
+    print("Process batch", cnt+1)
+    cnt += 1
+# Output: Process batch 1, 2, 3
+```
+
+### 3. Nested Loops
+A loop inside another loop. Used when processing 2-dimensional structures.
+
+```python
+products = ["P1", "P2"]
+regions = ["R1", "R2", "R3"]
+pairs = []
+
+for p in products:
+    for r in regions:
+        pairs.append((p, r))
+print(pairs)
+# Output: [('P1', 'R1'), ('P1', 'R2'), ('P1', 'R3'), ('P2', 'R1'), ('P2', 'R2'), ('P2', 'R3')]
+```
+
+### Loop Control Statements
+
+| Statement | Purpose |
+|-----------|---------|
+| `continue` | Skip to the next iteration |
+| `break` | Exit the loop immediately |
+| `pass` | Do nothing (placeholder) |
+
+---
+
+## Functions and I/O
+
+### Functions
+
+Functions are blocks of organized, reusable code that perform a single, related action. They help break down complex problems into smaller, manageable parts.
+
+**Defining a Function:**
+```python
+def function_name(parameters):
+    # code block
+    return value
+```
+
+**Example:**
+```python
+def calculate_total(sales, tax_rate):
+    tax = sales * tax_rate
+    total = sales + tax
+    return total
+
+result = calculate_total(1000, 0.08)
+print(result)  # Output: 1080.0
+```
+
+### I/O (Input/Output)
+
+I/O means reading data or writing data, such as reading files, writing files, or getting user input.
+
+**Reading a file:**
+```python
+with open("data.txt", "r") as file:
+    content = file.read()
+    print(content)
+```
+
+**Writing to a file:**
+```python
+with open("output.txt", "w") as file:
+    file.write("Hello, Data Analytics!")
+```
+
+**User input:**
+```python
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+```
+
+---
+
+## Practical Examples
+
+### Example 1: Customer Segmentation
+```python
+customers = [
+    {"name": "Alice", "total_spent": 500},
+    {"name": "Bob", "total_spent": 2500},
+    {"name": "Charlie", "total_spent": 1200}
+]
+
+for customer in customers:
+    if customer["total_spent"] > 2000:
+        segment = "VIP"
+    elif customer["total_spent"] > 1000:
+        segment = "Premium"
+    else:
+        segment = "Regular"
+    print(f"{customer['name']}: {segment}")
+```
+
+### Example 2: Sales Analysis
+```python
+monthly_sales = [12000, 15000, 14500, 18000, 16500]
+target = 15000
+
+for month, sales in enumerate(monthly_sales, 1):
+    status = "Above" if sales >= target else "Below"
+    print(f"Month {month}: ${sales} - {status} target")
+```
+
+### Example 3: Data Cleaning
+```python
+raw_data = ["  apple ", "BANANA", "Orange  "]
+cleaned_data = [item.strip().title() for item in raw_data]
+print(cleaned_data)  # Output: ['Apple', 'Banana', 'Orange']
+```
+
+---
+
+## Contributing
+
+Feel free to contribute to this guide by submitting pull requests or opening issues for improvements.
+
+## License
+
+This project is open source and available under the MIT License.
+
+---
